@@ -8,8 +8,8 @@
 
 /* Styles généraux */
 body {
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #2c2c2c;
+    color: #fff;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -17,7 +17,7 @@ body {
 }
 
 header {
-    background-color: #ff6b81;
+    background-color: #444444;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -35,7 +35,7 @@ main {
 nav {
     display: flex;
     justify-content: space-around;
-    background-color: #d32f3d;
+    background-color: #444444;
     padding: 0.5rem;
 }
 
@@ -49,29 +49,14 @@ nav a:hover {
     text-decoration: underline;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Profil Cards */
 .profile-card {
     position: relative;
-    background-color: white;
+    background-color: #444444;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 200px;
+    width: 20px;
     height: 500px;
     margin-bottom: 1rem;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -100,7 +85,7 @@ nav a:hover {
 .profile-card h2,
 .profile-card p {
     margin: 0;
-    color: white;
+    color: #fff;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
     text-align: center; /* Centre le texte */
 }
@@ -114,7 +99,7 @@ nav a:hover {
 }
 
 button {
-    background-color: #ff4757;
+    background-color: #fff;
     color: white;
     border: none;
     padding: 0.3rem 0.5rem;
@@ -201,7 +186,7 @@ button.btn-reject:hover {
 nav {
     display: flex;
     justify-content: space-around;
-    background-color: #ff4757;
+    background-color: #444;
     padding: 1rem;
     position: fixed;
     bottom: 0;
@@ -225,44 +210,17 @@ header h1 {
     font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Profil */
 #profile {
-    background-color: #ffffff;
+    background-color: #444444;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 2rem;
     text-align: center;
     max-width: 400px;
-    margin: 2rem auto;
     overflow: hidden;
     position: relative;
+    margin-bottom: 3rem;
 }
 
 .profile-header img {
@@ -271,30 +229,30 @@ header h1 {
     height: 120px;
     object-fit: cover;
     margin-bottom: 1rem;
-    border: 3px solid #ff6b81;
+    border: 3px solid #5e5e5e;
 }
 
 .profile-header h2 {
     font-size: 1.8rem;
-    color: #2c3e50;
+    color: #abb4b4;
     margin-bottom: 0.5rem;
 }
 
 .profile-header .astrology {
     font-size: 1rem;
-    color: #7f8c8d;
+    color: #fff;
     margin-bottom: 1rem;
 }
 
 .profile-bio h3, .profile-interests h3 {
     font-size: 1.4rem;
-    color: #2c3e50;
+    color: #abb4b4;
     margin-bottom: 1rem;
 }
 
 .profile-bio p, .profile-interests ul li {
     font-size: 1rem;
-    color: #7f8c8d;
+    color: #fff;
     line-height: 1.6;
     margin-bottom: 0.5rem;
 }
@@ -319,7 +277,7 @@ header h1 {
 }
 
 .profile-actions button {
-    background-color: #ff6b81;
+    background-color: #2c2c2c;
     color: #ffffff;
     border: none;
     border-radius: 20px;
@@ -330,36 +288,15 @@ header h1 {
 }
 
 .profile-actions button:hover {
-    background-color: #e74c3c;
+    background-color: #5e5e5e;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Navigation */
 nav {
     display: flex;
     justify-content: space-around;
-    background-color: #ff4757;
+    background-color: #444;
     padding: 1rem;
     position: fixed;
     bottom: 0;

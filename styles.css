@@ -6,195 +6,180 @@
     font-family: Arial, sans-serif;
 }
 
-/* Styles généraux */
+/* Corps de la page */
 body {
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #2c2c2c; /* Fond gris foncé */
+    color: #f9f9f9;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
+    position: relative;
+    margin: 0;
+    height: 100vh;
+    justify-content: center;
+    align-items: center; /* Fond noir par défaut */
+    overflow: hidden;
 }
 
+/* Dégradé dynamique */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.8), transparent);
+    opacity: 0; /* Caché par défaut */
+    pointer-events: none; /* Empêche l'interaction */
+    transition: opacity 0.3s ease;
+}
+
+/* Dégradé droit (vert) */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 255, 0, 0.8), transparent);
+    opacity: 0; /* Caché par défaut */
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Header */
 header {
-    background-color: #ff6b81;
-    color: white;
+    background-color: #444; /* Couleur adaptée au thème sombre */
+    color: #fff;
     text-align: center;
     padding: 1rem;
 }
 
+header h1 {
+    font-size: 2rem;
+}
+
+/* Main */
 main {
     flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    position: relative; 
     padding: 1rem;
-    width: 100%; /* Assure que main prend toute la largeur */
-    display: flex;
-    justify-content: center; /* Centrer le carousel horizontalement */
-    align-items: center; /* Centrer le carousel verticalement */
-}
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: #d32f3d;
-    padding: 0.5rem;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Profil Cards */
-.profile-card {
-    position: relative;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 200px;
-    height: 500px;
-    margin-bottom: 1rem;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.profile-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile-card .info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.25);
-    box-sizing: border-box;
-    padding: 1rem 0.5rem; /* Ajoute de l'espace autour du texte */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Évite que le texte et les boutons se chevauchent */
-    gap: 0.5rem; /* Ajoute un espacement entre les éléments */
-}
-
-.profile-card h2,
-.profile-card p {
-    margin: 0;
-    color: white;
-    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.7);
-    text-align: center; /* Centre le texte */
-}
-
-.profile-card h2 {
-    font-size: 1.5rem;
-}
-
-.profile-card p {
-    font-size: 1rem;
-}
-
-button {
-    background-color: #ff4757;
-    color: white;
-    border: none;
-    padding: 0.3rem 0.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-/* Effets de transformation pour le carousel */
-.profile-card.previous {
-    transform: scale(0.9) translateX(-30%); /* Carte précédente décalée à gauche */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
-}
-
-.profile-card.next {
-    transform: scale(0.9) translateX(30%); /* Carte suivante décalée à droite */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
-}
-
-.profile-card.active {
-    transform: scale(1) translateX(0); /* Carte active, centrée */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Ombre plus marquée pour l'effet de relief */
 }
 
 /* Carousel */
 #swipe-profiles {
-    overflow: hidden; /* Cache les cartes hors écran */
+    overflow: hidden;
     width: 100%;
-    max-width: 300px; /* Taille du carousel */
-    margin: 0 auto; /* Centrer le carousel */
+    max-width: 300px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .carousel {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Animation fluide */
+    transition: transform 0.5s ease-in-out;
+    padding-horizontal: 50px;
 }
 
 .profile-card {
-    min-width: 100%; /* Chaque carte prend toute la largeur visible */
-    box-sizing: border-box;
+    min-width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
 }
 
-/* Boutons de validation/refus */
+/* Contenu des cartes */
+.profile-card img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.profile-card .info {
+    padding: 1rem;
+    color: #333;
+}
+
+.profile-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-card p {
+    margin-bottom: 0.5rem;
+}
+
 .buttons {
     display: flex;
-    justify-content: space-around;
-    margin-top: auto; /* Pousse les boutons en bas de la section */
-    padding-top: 0.5rem; /* Ajoute un espacement par rapport au texte */
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 button.btn-accept,
 button.btn-reject {
-    width: 50px; /* Largeur du bouton */
+    width: 50px;
     height: 50px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    padding: 0.5rem;
+    border: 2px solid transparent;
+    background: none;
+    color: #fff;
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-button.btn-accept {
-    background-color: #2ecc71;
+button.btn-accept:hover ~ body::after {
+    opacity: 1; /* Affiche le dégradé vert à droite */
+}
+
+button.btn-reject:hover ~ body::before {
+    opacity: 1; /* Affiche le dégradé rouge à gauche */
+}
+/* Superposition pour le contenu des boutons */
+button.btn-accept span,
+button.btn-reject span {
+    position: relative;
+    z-index: 1;
 }
 
 button.btn-accept:hover {
-    transform: scale(1.1);
-    background-color: #27ae60;
-}
-
-button.btn-reject {
-    background-color: #e74c3c;
+    background-color: rgba(39, 174, 96, 0.8); /* Vert clair sur hover */
 }
 
 button.btn-reject:hover {
-    transform: scale(1.1);
-    background-color: #c0392b;
+    background-color: rgba(231, 76, 60, 0.8); /* Rouge clair sur hover */
 }
 
-/* Navigation */
+/* Navbar */
 nav {
     display: flex;
     justify-content: space-around;
-    background-color: #ff4757;
-    padding: 1rem;
+    background-color: #444;
+    padding: 0.5rem;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 
 nav a {
-    color: white;
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -202,255 +187,4 @@ nav a {
 
 nav a:hover {
     color: #f1f1f1;
-}
-
-
-header h1 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Profil */
-#profile {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    text-align: center;
-    max-width: 400px;
-    margin: 2rem auto;
-}
-
-#profile img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    border: 4px solid #ff6b81;
-}
-
-#profile h2 {
-    font-size: 1.5rem;
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
-#profile p {
-    font-size: 1rem;
-    color: #7f8c8d;
-    margin: 0.5rem 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: #ff4757;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #f1f1f1;
-}
-
-
-header h1 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Section des messages */
-#messages {
-    flex: 1;
-    padding: 1rem;
-    overflow-y: auto; /* Permet le défilement si nécessaire */
-    max-height: 70vh; /* Limite la hauteur de la section des messages */
-}
-
-.message {
-    background-color: white;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.message p {
-    margin: 0;
-    font-size: 1rem;
-    color: #333;
-}
-
-.user-message {
-    background-color: #e74c3c;
-    color: white;
-    text-align: right;
-}
-
-/* Input de message */
-/* Barre de saisie de message */
-#message-input {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    background-color: #ffffff;
-    border-top: 1px solid #e0e0e0;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#message-input input {
-    flex: 1;
-    padding: 0.75rem;
-    margin-right: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s ease-in-out;
-}
-
-#message-input input:focus {
-    border-color: #ff6b81;
-}
-
-#message-input button {
-    background-color: #ff6b81;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease-in-out;
-}
-
-#message-input button:hover {
-    background-color: #e74c3c;
-}
-
-#discussion-list {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.discussion {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Espace entre l'image et le texte */
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.discussion:hover {
-    background-color: #f0f0f0;
-}
-
-.discussion-img img {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-}
-
-.discussion-info h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: #2c3e50;
-}
-
-.discussion-info p {
-    margin: 0.5rem 0 0 0;
-    font-size: 0.9rem;
-    color: #7f8c8d;
-}
-
-.discussion-info a {
-    color: #ff4757;
-    text-decoration: none;
-}
-
-.discussion-info a:hover {
-    text-decoration: underline;
 }

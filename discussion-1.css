@@ -8,14 +8,13 @@
 
 /* Styles généraux */
 body {
-    background-color: #f9f9f9;
+    background-color: #2c2c2c;
     color: #333;
     min-height: 100vh;
-
 }
 
 header {
-    background-color: #ff6b81;
+    background-color: #444444;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -24,30 +23,15 @@ header {
 main {
     flex: 1;
     padding: 1rem;
-
+    height: 100%;
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Navigation */
 nav {
     display: flex;
     justify-content: space-around;
-    background-color: #ff4757;
+    background-color: #444444;
     padding: 1rem;
     position: fixed;
     bottom: 0;
@@ -72,15 +56,6 @@ header h1 {
 }
 
 
-
-
-
-
-
-
-
-
-
 .message img {
     width: 40px;
     height: 40px;
@@ -95,26 +70,6 @@ header h1 {
 .message p {
     margin: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Section des messages */
 #messages {
@@ -139,10 +94,10 @@ header h1 {
 }
 
 .user-message {
-    background-color: #ffffff;
-    color: #ff6b81; /* Couleur du texte */
+    background-color: #fff;
+    color: #fff; /* Couleur du texte */
     text-align: right;
-    border: 2px solid #ff6b81; /* Bordure autour du message */
+    border: 2px solid #444444; /* Bordure autour du message */
     border-radius: 10px; /* Coins arrondis pour un effet esthétique */
     padding: 10px; /* Espacement intérieur */
     max-width: 70%; /* Limiter la largeur du message */
@@ -157,8 +112,8 @@ header h1 {
     display: flex;
     align-items: center;
     padding: 1rem;
-    background-color: #ffffff;
-    border-top: 1px solid #e0e0e0;
+    background-color: #2c2c2c;
+    border-top: 1px solid #444444;
 }
 
 #message-input input {
@@ -177,7 +132,7 @@ header h1 {
 }
 
 #message-input button {
-    background-color: #ff6b81;
+    background-color: #444444;
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -188,7 +143,7 @@ header h1 {
 }
 
 #message-input button:hover {
-    background-color: #e74c3c;
+    background-color: #5e5e5e;
 }
 
 /* Section des discussions */
@@ -214,7 +169,7 @@ header h1 {
 }
 
 .discussion:hover {
-    background-color: #f0f0f0;
+    background-color: #5e5e5e;
 }
 
 .discussion-img img {
@@ -237,7 +192,7 @@ header h1 {
 }
 
 .discussion-info a {
-    color: #ff4757;
+    color: #444444;
     text-decoration: none;
 }
 
