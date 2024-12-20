@@ -20,7 +20,7 @@
             currentIndex = 0;
         }
 
-        const offset = -currentIndex * 100; 
+        const offset = -currentIndex * 100;
         carousel.style.transform = `translateX(${offset}%)`;
     }
 </script>
@@ -30,7 +30,7 @@
         <h1>GoofyMatch</h1>
     </header>
     <main>
-        
+
         <button class="btn-reject" onclick="nextCard()">✖</button>
         <section id="swipe-profiles">
             <div class="carousel">
@@ -130,82 +130,101 @@
     </nav>
 
     <script>
-        const sound = new Audio('sigma-boy.mp3'); // Assurez-vous que le fichier MP3 est bien dans le bon chemin
-
-        // Sélectionner tous les boutons "btn-reject" et ajouter un event listener à chacun
+        const rejectSounds = [
+            new Audio('ack.mp3'),
+            new Audio('fortnite.mp3'),
+            new Audio('demande-dami.mp3'),
+            new Audio('spongebob-fail.mp3')
+        ];
         const rejectButtons = document.getElementsByClassName('btn-reject');
 
         for (let button of rejectButtons) {
             button.addEventListener('click', () => {
-                sound.play(); // Jouer le son lorsque le bouton est cliqué
+                // Choisir un son aléatoire pour les boutons reject
+                const randomIndex = Math.floor(Math.random() * rejectSounds.length);
+                const randomSound = rejectSounds[randomIndex];
+
+                // Jouer le son sélectionné
+                randomSound.currentTime = 0; // Réinitialiser le son pour permettre une lecture répétée
+                randomSound.play();
             });
         }
 
-        const soundo = new Audio('thick-of-it.mp3'); // Assurez-vous que le fichier MP3 est bien dans le bon chemin
+        const acceptSounds = [
+            new Audio('fart.mp3'),
+            new Audio('brain-fart.mp3'),
+            new Audio('le-cailloux.mp3'),
+            new Audio('minecraft-drinking-sound-effect.mp3')
+        ];
 
-        // Sélectionner tous les boutons "btn-reject" et ajouter un event listener à chacun
+
+
         const acceptButtons = document.getElementsByClassName('btn-accept');
 
         for (let button of acceptButtons) {
             button.addEventListener('click', () => {
-                soundo.play(); // Jouer le son lorsque le bouton est cliqué
+                // Choisir un son aléatoire dans le tableau
+                const randomIndex = Math.floor(Math.random() * acceptSounds.length);
+                const randomSound = acceptSounds[randomIndex];
+
+                // Jouer le son sélectionné
+                randomSound.play();
             });
         }
-
 
         // Charger le fichier JSON externe
         fetch('nourriture.json')
-    .then(response => response.json())
-    .then(data => {
-        const nourriturePreferee = data.categories[0].strCategory;
+            .then(response => response.json())
+            .then(data => {
+                const nourriturePreferee = data.categories[0].strCategory;
 
-        // Sélectionner tous les éléments avec la classe "nourriture-preferee"
-        const nourritureElements = document.querySelectorAll('.nourriture-preferee');
+                // Sélectionner tous les éléments avec la classe "nourriture-preferee"
+                const nourritureElements = document.querySelectorAll('.nourriture-preferee');
 
-        // Mettre à jour chaque élément
-        nourritureElements.forEach(element => {
-            element.textContent = `Nourriture préférée : ${nourriturePreferee}`;
+                // Mettre à jour chaque élément
+                nourritureElements.forEach(element => {
+                    element.textContent = `Nourriture préférée : ${nourriturePreferee}`;
+                });
+            })
+            .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
+
+
+
+
+        fetch('livre.json')
+            .then(response => response.json())
+            .then(data => {
+                const livreElements = document.querySelectorAll('.livre-preferee');
+
+                // Vérifier que le tableau "docs" contient au moins deux éléments
+                if (data.docs.length > 1) {
+                    const livre = data.docs[1]; // Accéder au deuxième livre (index 1)
+
+                    // Mettre à jour chaque élément avec la classe "livre-preferee"
+                    livreElements.forEach(element => {
+                        element.textContent = `Livre préféré : ${livre.title}`;
+                    });
+                } else {
+                    livreElements.forEach(element => {
+                        element.textContent = "Le deuxième livre n'existe pas.";
+                    });
+                }
+            })
+            .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
+
+        document.addEventListener('mousemove', (e) => {
+            const screenWidth = window.innerWidth;
+            const cursorX = e.clientX;
+            const main = document.querySelector('main');
+
+            if (cursorX < screenWidth / 2) {
+                main.querySelector('::before').style.opacity = "1"; // Dégradé rouge
+                main.querySelector('::after').style.opacity = "0"; // Pas de dégradé vert
+            } else {
+                main.querySelector('::before').style.opacity = "0";
+                main.querySelector('::after').style.opacity = "1";
+            }
         });
-    })
-    .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
-
-
-
-
-    fetch('livre.json')
-    .then(response => response.json())
-    .then(data => {
-        const livreElements = document.querySelectorAll('.livre-preferee');
-
-        // Vérifier que le tableau "docs" contient au moins deux éléments
-        if (data.docs.length > 1) {
-            const livre = data.docs[1]; // Accéder au deuxième livre (index 1)
-
-            // Mettre à jour chaque élément avec la classe "livre-preferee"
-            livreElements.forEach(element => {
-                element.textContent = `Livre préféré : ${livre.title}`;
-            });
-        } else {
-            livreElements.forEach(element => {
-                element.textContent = "Le deuxième livre n'existe pas.";
-            });
-        }
-    })
-    .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
-
-    document.addEventListener('mousemove', (e) => {
-    const screenWidth = window.innerWidth;
-    const cursorX = e.clientX;
-    const main = document.querySelector('main');
-    
-    if (cursorX < screenWidth / 2) {
-        main.querySelector('::before').style.opacity = "1"; // Dégradé rouge
-        main.querySelector('::after').style.opacity = "0"; // Pas de dégradé vert
-    } else {
-        main.querySelector('::before').style.opacity = "0";
-        main.querySelector('::after').style.opacity = "1";
-    }
-});
 
     </script>
 </body>
