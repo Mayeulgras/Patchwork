@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Site de Rencontre</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+    let currentIndex = 0;
+
+    function nextCard() {
+        const carousel = document.querySelector('.carousel');
+        const totalCards = document.querySelectorAll('.profile-card').length;
+
+        // Incrémente l'index pour passer à la carte suivante
+        currentIndex++;
+
+        // Si on dépasse le nombre de cartes, revenir à la première
+        if (currentIndex >= totalCards) {
+            currentIndex = 0;
+        }
+
+        // Déplacer le carousel en fonction de l'index
+        const offset = -currentIndex * 100; // Chaque carte occupe 100% de la largeur
+        carousel.style.transform = `translateX(${offset}%)`;
+    }
+</script>
+
+<body>
+    <header>
+        <h1>Bienvenue sur GOOFYmatch</h1>
+    </header>
+    <main>
+        <section id="swipe-profiles">
+            <div class="carousel">
+                <div class="profile-card">
+                    <img src="1.jpg" alt="Photo de profil">
+                    <div class="info">
+                        <h2>Alice</h2>
+                        <p class="nourriture-preferee"></p>
+                        <p class="livre-preferee"></p>
+
+                        <p>Signe astrologique : Bélier</p>
+                        <div class="buttons">
+                            <button class="btn-accept" onclick="nextCard()">✔</button>
+                            <button class="btn-reject" onclick="nextCard()">✖</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <img src="https://thispersondoesnotexist.com/" alt="Photo de profil">
+                    <div class="info">
+                        <h2>Alice</h2>
+                        <p class="nourriture-preferee"></p>
+                        <p class="livre-preferee"></p>
+
+                        <p>Signe astrologique : Bélier</p>
+                        <div class="buttons">
+                            <button class="btn-accept" onclick="nextCard()">✔</button>
+                            <button class="btn-reject" onclick="nextCard()">✖</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <img src="https://thispersondoesnotexist.com/" alt="Photo de profil">
+                    <div class="info">
+                        <h2>Alice</h2>
+                        <p class="nourriture-preferee"></p>
+                        <p class="livre-preferee"></p>
+
+                        <p>Signe astrologique : Bélier</p>
+                        <div class="buttons">
+                            <button class="btn-accept" onclick="nextCard()">✔</button>
+                            <button class="btn-reject" onclick="nextCard()">✖</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <img src="https://thispersondoesnotexist.com/" alt="Photo de profil">
+                    <div class="info">
+                        <h2>Alice</h2>
+                        <p class="nourriture-preferee"></p>
+                        <p class="livre-preferee"></p>
+
+                        <p>Signe astrologique : Bélier</p>
+                        <div class="buttons">
+                            <button class="btn-accept" onclick="nextCard()">✔</button>
+                            <button class="btn-reject" onclick="nextCard()">✖</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <img src="https://thispersondoesnotexist.com/" alt="Photo de profil">
+                    <div class="info">
+                        <h2>Alice</h2>
+                        <p class="nourriture-preferee"></p>
+                        <p class="livre-preferee"></p>
+
+                        <p>Signe astrologique : Bélier</p>
+                        <div class="buttons">
+                            <button class="btn-accept" onclick="nextCard()">✔</button>
+                            <button class="btn-reject" onclick="nextCard()">✖</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <img src="https://thispersondoesnotexist.com/" alt="Photo de profil">
+                    <div class="info">
+                        <h2>Alice</h2>
+                        <p class="nourriture-preferee"></p>
+                        <p class="livre-preferee"></p>
+
+                        <p>Signe astrologique : Bélier</p>
+                        <div class="buttons">
+                            <button class="btn-accept" onclick="nextCard()">✔</button>
+                            <button class="btn-reject" onclick="nextCard()">✖</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <img src="https://thispersondoesnotexist.com/" alt="Photo de profil">
+                    <div class="info">
+                        <h2>Alice</h2>
+                        <p class="nourriture-preferee"></p>
+                        <p class="livre-preferee"></p>
+
+                        <p>Signe astrologique : Bélier</p>
+                        <div class="buttons">
+                            <button class="btn-accept" onclick="nextCard()">✔</button>
+                            <button class="btn-reject" onclick="nextCard()">✖</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="discussion.html">Discussions</a>
+        <a href="profil.html">Profil</a>
+    </nav>
+
+    <script>
+        const sound = new Audio('sigma-boy.mp3'); // Assurez-vous que le fichier MP3 est bien dans le bon chemin
+
+        // Sélectionner tous les boutons "btn-reject" et ajouter un event listener à chacun
+        const rejectButtons = document.getElementsByClassName('btn-reject');
+
+        for (let button of rejectButtons) {
+            button.addEventListener('click', () => {
+                sound.play(); // Jouer le son lorsque le bouton est cliqué
+            });
+        }
+
+        const soundo = new Audio('fart.mp3'); // Assurez-vous que le fichier MP3 est bien dans le bon chemin
+
+        // Sélectionner tous les boutons "btn-reject" et ajouter un event listener à chacun
+        const acceptButtons = document.getElementsByClassName('btn-accept');
+
+        for (let button of acceptButtons) {
+            button.addEventListener('click', () => {
+                soundo.play(); // Jouer le son lorsque le bouton est cliqué
+            });
+        }
+
+
+        // Charger le fichier JSON externe
+        fetch('nourriture.json')
+    .then(response => response.json())
+    .then(data => {
+        const nourriturePreferee = data.categories[0].strCategory;
+
+        // Sélectionner tous les éléments avec la classe "nourriture-preferee"
+        const nourritureElements = document.querySelectorAll('.nourriture-preferee');
+
+        // Mettre à jour chaque élément
+        nourritureElements.forEach(element => {
+            element.textContent = `Nourriture préférée : ${nourriturePreferee}`;
+        });
+    })
+    .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
+
+
+
+
+    fetch('livre.json')
+    .then(response => response.json())
+    .then(data => {
+        const livreElements = document.querySelectorAll('.livre-preferee');
+
+        // Vérifier que le tableau "docs" contient au moins deux éléments
+        if (data.docs.length > 1) {
+            const livre = data.docs[1]; // Accéder au deuxième livre (index 1)
+
+            // Mettre à jour chaque élément avec la classe "livre-preferee"
+            livreElements.forEach(element => {
+                element.textContent = `Livre préféré : ${livre.title}`;
+            });
+        } else {
+            livreElements.forEach(element => {
+                element.textContent = "Le deuxième livre n'existe pas.";
+            });
+        }
+    })
+    .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
+
+    </script>
+</body>
+
+</html>

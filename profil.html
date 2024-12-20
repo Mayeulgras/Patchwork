@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="profil.css">
+</head>
+
+<body>
+    <header>
+        <h1>Mon Profil</h1>
+    </header>
+    <main>
+        <section id="profile">
+            <div class="profile-header">
+                <img src="5555.jpg" alt="Photo de profil">
+                <h2>John Doe</h2>
+                <p id="nourriture-preferee"></p>
+                <p id="livre-preferee"></p>
+                <p class="astrology">Signe astrologique : Balance ♎</p>
+            </div>
+
+            <div class="profile-bio">
+                <h3>À propos de moi</h3>
+                <p>Je suis un passionné de littérature, de voyages et de nouvelles technologies. Toujours en quête de
+                    nouvelles aventures, j'aime rencontrer de nouvelles personnes et partager des idées inspirantes.</p>
+            </div>
+
+            <div class="profile-interests">
+                <h3>Centres d'intérêt</h3>
+                <ul>
+                    <li>📖 Lecture</li>
+                    <li>💻 Technologie</li>
+                    <li>✈️ Voyages</li>
+                    <li>📷 Photographie</li>
+                    <li>🎥 Cinéma</li>
+                </ul>
+            </div>
+
+            <div class="profile-actions">
+                <button class="edit-profile">Modifier le profil</button>
+            </div>
+        </section>
+
+    </main>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="discussion.html">Discussions</a>
+        <a href="profil.html">Profil</a>
+    </nav>
+
+    <script>
+        // Charger le fichier JSON externe
+        fetch('nourriture.json')
+            .then(response => response.json()) // Convertir la réponse en JSON
+            .then(data => {
+                // Sélectionner la première catégorie (par exemple)
+                const nourriturePreferee = data.categories[0].strCategory;
+
+                // Afficher la catégorie dans l'élément avec l'id "nourriture-preferee"
+                document.getElementById('nourriture-preferee').textContent = `Nourriture préférée : ${nourriturePreferee}`;
+
+            })
+            .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
+
+
+
+        fetch('livre.json')
+            .then(response => response.json()) // Convertir la réponse en JSON
+            .then(data => {
+                const livreContainer = document.getElementById('livre-preferee');
+
+                // Vérifier que le tableau "docs" contient au moins deux éléments
+                if (data.docs.length > 1) {
+                    const livre = data.docs[1]; // Accéder au deuxième livre (index 1)
+
+                    // Créer un élément pour le livre
+                    const livreDiv = document.createElement('div');
+                    livreDiv.classList.add('livre');
+
+                    // Ajouter le titre du livre
+                    const titre = document.createElement('p');
+                    titre.textContent = `Livre préféré : ${livre.title}`;
+                    livreDiv.appendChild(titre);
+
+                    // Ajouter l'élément "livre" au container
+                    livreContainer.appendChild(livreDiv);
+                } else {
+                    livreContainer.textContent = "Le deuxième livre n'existe pas.";
+                }
+            })
+            .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
+    </script>
+</body>
+
+</html>

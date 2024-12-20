@@ -1,0 +1,247 @@
+/* Réinitialisation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Styles généraux */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    min-height: 100vh;
+
+}
+
+header {
+    background-color: #ff6b81;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ff4757;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #f1f1f1;
+}
+
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+.message img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.message p {
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section des messages */
+#messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto; /* Permet le défilement si nécessaire */
+    max-height: 70vh; /* Limite la hauteur de la section des messages */
+}
+
+.message {
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message p {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.user-message {
+    background-color: #ffffff;
+    color: #ff6b81; /* Couleur du texte */
+    text-align: right;
+    border: 2px solid #ff6b81; /* Bordure autour du message */
+    border-radius: 10px; /* Coins arrondis pour un effet esthétique */
+    padding: 10px; /* Espacement intérieur */
+    max-width: 70%; /* Limiter la largeur du message */
+    margin: 10px 0; /* Espacement entre les messages */
+    display: inline-block; /* S'assurer que le message prend seulement l'espace nécessaire */
+}
+
+
+/* Input de message */
+/* Barre de saisie de message */
+#message-input {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#message-input input {
+    flex: 1;
+    padding: 0.75rem;
+    margin-right: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+#message-input input:focus {
+    border-color: #ff6b81;
+}
+
+#message-input button {
+    background-color: #ff6b81;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#message-input button:hover {
+    background-color: #e74c3c;
+}
+
+/* Section des discussions */
+#discussion-list {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.discussion {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espace entre l'image et le texte */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Prendre toute la largeur disponible */
+    max-width: 100%; /* Assure qu'il ne dépasse pas de la page */
+    margin: 0; /* Enlève les marges internes si vous souhaitez qu'elles collent aux bords */
+}
+
+.discussion:hover {
+    background-color: #f0f0f0;
+}
+
+.discussion-img img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.discussion-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.discussion-info p {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.discussion-info a {
+    color: #ff4757;
+    text-decoration: none;
+}
+
+.discussion-info a:hover {
+    text-decoration: underline;
+}
